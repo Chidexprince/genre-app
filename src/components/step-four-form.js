@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+
+import { FormContext } from '../service/form-context';
 
 
 const StepFourForm = () => {
+    const { step } = useContext(FormContext);
+    const [formFour, setFormFour] = useState(step);
     return (
         <div className="container">
-           <form>
+             {formFour === 4 && ( 
+                <form>
                <label htmlFor="book-title">Book Title</label>
                <input 
                 type="text" 
@@ -85,6 +90,8 @@ const StepFourForm = () => {
                 name="" 
                 id="description" />    
            </form>
+             )}
+           
         </div>
     );
 };
